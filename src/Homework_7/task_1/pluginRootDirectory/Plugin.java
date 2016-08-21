@@ -1,4 +1,4 @@
-package Homework_7.task_1;
+package Homework_7.task_1.pluginRootDirectory;
 
 /**
  * Created by ABurykin on 12.08.2016.
