@@ -5,15 +5,52 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 /**
  * Created by ABurykin on 13.08.2016.
  */
 
-//  почему не проходит?
+//  почему то не проходит
 public class Solution {
 
     public static void main(String[] args) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList();
+
+        // добавляю слова
+        int n = Integer.parseInt(sc.next());
+        for (int i = 0; i < n; i++) {
+            String input =  sc.next().toLowerCase();
+            list.add(input.toLowerCase());
+        }
+
+        Iterator<String> iter = list.iterator();
+        while (iter.hasNext()){
+            String curr = iter.next().toString();
+            if (curr.contains("eee") ||
+                    curr.contains("yyy") ||
+                    curr.contains("uuu") ||
+                    curr.contains("iii") ||
+                    curr.contains("ooo") ||
+                    curr.contains("aaa")) {
+                iter.remove();
+            }
+        }
+
+        for (String x : list) {
+            System.out.println(x);
+        }
+    }
+}
+
+
+
+
+
+/*
+
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> list = new ArrayList();
@@ -41,12 +78,8 @@ public class Solution {
         for (String x : list) {
             System.out.println(x);
         }
-    }
-}
 
-
-
-
+ */
 
 
 

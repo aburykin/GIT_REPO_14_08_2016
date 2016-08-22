@@ -5,13 +5,65 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 /**
  * Created by ABurykin on 13.08.2016.
  */
 
-// нужно оптимизировать, слишком долго работает 27/30 пройдено
+// Зачтено
 public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+
+        // сначала вводим количество операций
+        int countOperations = Integer.parseInt(br.readLine());
+        for (int i = 0; i < countOperations; i++){
+
+            String[] action = br.readLine().split(" ");   // действие и число
+
+            // добавление
+            if (Integer.parseInt(action[0]) == 1)
+            {
+                if (treeMap.get(Integer.parseInt(action[1])) == null){
+                    treeMap.put(Integer.parseInt(action[1]), 1);
+                } else {
+                    treeMap.put(Integer.parseInt(action[1]), treeMap.get(Integer.parseInt(action[1]))+1);
+                }
+            }
+
+            // удаление минимального
+            else  if (Integer.parseInt(action[0]) == 2)
+            {
+                removeMin(treeMap);
+            }
+        }
+    }
+
+    public static void removeMin(TreeMap<Integer, Integer> treeMap){
+/*
+        System.out.println("TREE MAP:");
+        for (Integer key : treeMap.keySet()) {
+            System.out.println("key =" + key+ " val = "  + treeMap.get(key));
+        }
+        */
+        int key = treeMap.firstKey();
+        int val = treeMap.get(key)-1;
+
+        treeMap.put(key, val);
+        System.out.println(key);
+        //System.out.println("remove " + key + " val = "  + val);
+        if (val == 0){
+            treeMap.remove(key);
+        }
+
+    }
+}
+
+
+/*
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -66,24 +118,4 @@ public class Solution {
 
     }
 
-}
-
-
-
-
-/*
-
-
-        // удаляем минимум
-        iter = mass.iterator(); //сбросил итератор
-        while (iter.hasNext()){
-            int curr = iter.next();
-            if (min == curr){
-                iter.remove();
-                System.out.println(curr);
-                break;
-            }
-        }
-
-        */
-
+ */

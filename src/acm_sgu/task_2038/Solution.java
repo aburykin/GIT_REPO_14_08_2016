@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
  * Created by ABurykin on 13.08.2016.
  */
 
-
+// Зачтена
 public class Solution {
 
     public static void main(String[] args) throws IOException {
