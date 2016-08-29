@@ -1,4 +1,4 @@
-package Homework_4;
+package Homework_4.countmap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,23 +12,24 @@ public interface CountMap<T> {
     void add(T t);
 
     //Возвращает количество добавлений данного элемента
-    int getCount(T  t);
+    int getCount(T t);
 
     //Удаляет элемент и контейнера и возвращает количество его добавлений(до удаления)
-    int remove(T  t);
+    int remove(T t);
 
     //количество разных элементов
     int size();
 
-    //Добавить все элементы из source в текущий контейнер, при совпадении ключей, суммировать значения
+    //Добавить все элементы из source в текущий контейнер, при совпадении ключей,     суммировать значения
     void addAll(CountMap<T> source);
 
     //Вернуть java.util.Map. ключ - добавленный элемент, значение - количество его добавлений
-    Map toMap();
+    Map<T, T> toMap();
 
     //Тот же самый контракт как и toMap(), только всю информацию записать в destination
-    void toMap(Map destination);
+    void toMap(Map<T, T> destination);
 
-    public HashMap<T, Integer> getMap();
+    HashMap<T, Integer> getMap();
 }
+
 
