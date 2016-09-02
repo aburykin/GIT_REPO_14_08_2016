@@ -14,9 +14,7 @@ public class CallableClass implements Callable {
         System.out.println("Выполняются сложные рассчеты 3 секунды.");
         Thread.sleep(3000);
         Date x = new Date();
-
-        if(true) throw new CallableException("Кривые руки сделали ошибку ввода", new IOException());
-
+       // if(true) throw new CallableException("Кривые руки сделали ошибку ввода", new IOException());
         return x.getTime();
     }
 }
